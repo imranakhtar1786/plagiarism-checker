@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+{% block title %}
+    <title>Plag_Checker | LOGIN</title>
+{% endblock %}
+{% block body %}
+<div class="container-fluid mt-2 rounded p-3" style="background-color:rgb(218, 250, 290);">
+    <h2 class="text-center">Login Page</h2>
+  </div>
+<section class="login_part p-4"  >
+    <div class="container-fluid" >
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6" style="background-color:rgb(222, 250, 248); height:75%;">
+                <div class="login_part_text text-center" style="width:100%" >
+                    <div class="login_part_text_iner" style="padding:110px">
+                        <h2>New to Our Website?</h2>
+                        <p>Create a Free Account</p>
+                        <a href="{% url "signup" %}" class="text-white text-decoration-none" ><button class="p-2 text-light bg-dark form-control">SIGNUP</button></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="login_part_form" style="padding:40px">
+                    <div class="" >
+                        <h3 class="text-center">Welcome Back ! <br>
+                            Please Sign in now</h3>
+                            {% if messages %}
+                            {% for m in messages %}
+                            <div class="alert alert-danger text-center alert-dismissible fade show" role="alert">
+                                {{m}}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                            {% endfor %}
+                            {% endif %}
+                            <form class="row contact_form" action="" method="post">
+                            {% csrf_token %}
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" required id="username" name="username" 
+                                    placeholder="Username">
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="password" class="form-control" required id="password" name="password" 
+                                    placeholder="Password">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <button type="submit" class=" form-control w-100 p-2 text-light bg-dark">
+                                    LOGIN
+                                </button>
+                            </div>
+                            <a href="#" class="text-decoration-none text-dark px-3" >Forget Password ?</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
